@@ -5,11 +5,69 @@
   <style>
     body {
       background: #fafafa;
+      font-family: sans-serif;
     }
   </style>
   <script src="../ackbar-snackbar.js" type="module"></script>
 </head>
 <body>
+  <section class="demo__buttons">
+    <button class="demo__button" snackbarVariant="default">default</button>
+    <button class="demo__button" snackbarVariant="success">success</button>
+    <button class="demo__button" snackbarVariant="warning">warning</button>
+    <button class="demo__button" snackbarVariant="error">error</button>
+    <button class="demo__button" snackbarVariant="info">info</button>
+  </section>
+  <br>
+  <section>
+    <label for="buttonyes">
+      <input type="radio" name="button" value="yes" id="buttonyes"> Show button
+    </label>
+    <label for="buttonno">
+      <input type="radio" name="button" value="no" id="buttonno" checked> Hide button
+    </label>
+    <input type="text" id="buttonText" placeholder="Button Text">
+  </section>
+  <br>
+  <label for="autoyes">
+    <input type="radio" name="auto" value="yes" id="autoyes"> Auto
+  </label>
+  <label for="autono">
+    <input type="radio" name="auto" value="no" id="autono" checked> Dismiss
+  </label>
+  </section>
+
   <ackbar-snackbar></ackbar-snackbar>
+
+  <script>
+    const buttons = document.querySelectorAll('.demo__button');
+
+    function handleButtonClick(event) {
+      const snackbarVariant = event.currentTarget.getAttribute('snackbarVariant');
+      const showButton = document.querySelector('input[name="button"]:checked').value === 'yes';
+      const buttonText = document.querySelector('#buttonText').value;
+      const typeAuto = document.querySelector('input[name="auto"]:checked').value === 'yes';
+      console.log('typeAuto', typeAuto);
+      const snackbar = {
+        message: `this is a ${snackbarVariant} message`,
+        variant: snackbarVariant,
+        duration: 3000,
+        type: typeAuto ? 'auto' : 'dismiss',
+        buttonText: showButton ? buttonText : null,
+        buttonCallback() {console.log('SUPER CALLBACK!!!!')}
+      };
+
+      window.dispatchEvent(new CustomEvent('ackbar-snackbar-add', {
+        bubbles: true,
+        composed: true,
+        detail: snackbar
+      }));
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', handleButtonClick);
+    })
+
+  </script>
 </body>
 </html>

@@ -1,0 +1,69 @@
+import { css } from 'lit-element';
+
+export const ackbarBarStyles = css`
+  :host {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--ackbar-color-bg);
+    padding: var(--ackbar-padding-fourth) var(--ackbar-padding-normal);
+    margin-top: var(--ackbar-spacing-normal);
+    color: var(--ackbar-color-text);
+    border-radius: var(--ackbar-radius-normal);
+    max-width: var(--ackbar-max-width);
+    min-width: var(--ackbar-min-width);
+    width: fit-content;
+  }
+
+  :host([variant="success"]) {
+    background-color: var(--ackbar-color-success);
+  }
+
+  :host([variant="error"]) {
+    background-color: var(--ackbar-color-error);
+  }
+
+  :host([variant="warning"]) {
+    background-color: var(--ackbar-color-warning);
+  }
+
+  :host([variant="info"]) {
+    background-color: var(--ackbar-color-info);
+  }
+
+  :host([variant="custom"]) {
+    background-color: var(--ackbar-color-custom);
+  }
+
+  :host([hasButton]) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-gap: 1rem;
+  }
+
+  .ackbar-bar__button {
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    color: var(--ackbar-color-button-default);
+    outline: none;
+    opacity: .75;
+    padding: .5rem;
+    border-radius: .25rem;
+  }
+
+  :host([variant="success"]) .ackbar-bar__button,
+  :host([variant="error"]) .ackbar-bar__button,
+  :host([variant="info"]) .ackbar-bar__button,
+  :host([variant="warning"]) .ackbar-bar__button {
+    color: var(--ackbar-color-text);
+  }
+
+  @media (hover: hover) {
+    .ackbar-bar__button:hover {
+      background-color: var(--ackbar-color-button-hover-background);
+      cursor: pointer;
+      opacity: 1;
+    }
+  }
+`;

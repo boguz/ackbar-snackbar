@@ -1,3 +1,3 @@
-import { AckbarSnackbar } from './src/AckbarSnackbar.js';
+import { AckbarSnackbar } from './src/components/AckbarSnackbar.js';
 
 window.customElements.define('ackbar-snackbar', AckbarSnackbar);
