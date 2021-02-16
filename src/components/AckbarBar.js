@@ -3,9 +3,9 @@ import { ackbarBarStyles } from '../styles/ackbar-bar.styles.js';
 
 export class AckbarBar extends LitElement {
   render() {
-    console.log('XXXXX', this.type);
     return html`
       <p class="ackbar-bar__message">${this.message}</p>
+
       ${this.buttonText ? html`
         <button class="ackbar-bar__button" @click="${this._handleButtonClick}">${this.buttonText}</button>
       ` : ''}
@@ -30,11 +30,21 @@ export class AckbarBar extends LitElement {
     };
   }
 
+  /**
+   * Add Attribute to element, set private variable
+   *
+   * @param value
+   */
   set buttonText(value) {
     if (value) this.setAttribute('hasButton', '');
     this._buttonText = value;
   }
 
+  /**
+   * Get value of private variable
+   *
+   * @returns {*}
+   */
   get buttonText() {
     return this._buttonText;
   }
@@ -51,12 +61,18 @@ export class AckbarBar extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
+
+    // Start the timer
     if (this.type === 'auto') {
-      console.log('should be auto');
       this._timer();
     }
   }
 
+  /**
+   * Check if enough time has passed until auto dismiss
+   *
+   * @private
+   */
   _timer() {
     const rightNow = Date.now();
     if (rightNow - this._showStart >= this.duration) {
@@ -70,9 +86,15 @@ export class AckbarBar extends LitElement {
   update(changedProperties) {
     super.update(changedProperties);
 
+    // start fadein on first load
     if (!this.hasFadedIn) this._fadeIn();
   }
 
+  /**
+   * Add fade in animation, dispatch event
+   *
+   * @private
+   */
   _fadeIn() {
     const animationKeyframes = [{ opacity: '0' }, { opacity: '1' }];
     const animationOptions = { duration: this._fadeInDuration, iterations: 1 };
@@ -87,16 +109,27 @@ export class AckbarBar extends LitElement {
     }));
   }
 
+  /**
+   * Add fade out animation, remove snackbar
+   *
+   * @private
+   */
   _fadeOut() {
     const fadeOutKeyframes = [{ opacity: '1' }, { opacity: '0' }];
     const fadeOutOptions = { duration: this._fadeOutDuration, iterations: 1 };
     const fadeOutAnimation = this.animate(fadeOutKeyframes, fadeOutOptions);
 
+    // after fadeout animation finishes, remove snackbar
     fadeOutAnimation.onfinish = () => {
       this._removeSnackbar();
     };
   }
 
+  /**
+   * Dispatch event to remove snackbar from DOM
+   *
+   * @private
+   */
   _removeSnackbar() {
     this.dispatchEvent(new CustomEvent('ackbar-snackbar-remove', {
       bubbles: true,
@@ -107,6 +140,13 @@ export class AckbarBar extends LitElement {
     }));
   }
 
+  /**
+   * Handle button click
+   *  - trigger dismiss (fade out)
+   *  - trigger custom callback function
+   *
+   * @private
+   */
   _handleButtonClick() {
     this._fadeOut();
     if (typeof this.buttonCallback === 'function') {
