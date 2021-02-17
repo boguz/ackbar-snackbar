@@ -1,9 +1,9 @@
 export const defaultOptions = {
-  message: 'Ackbar snackbar: It\'s a snackbar',
+  buttonCallback: null,
+  buttonText: null,
   duration: 4000,
+  hasFadedIn: false,
+  message: 'Ackbar snackbar: It\'s a snackbar',
   type: 'auto',
   variant: 'default',
-  hasFadedIn: false,
-  buttonText: null,
-  buttonCallback: null,
 }

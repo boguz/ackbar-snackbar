@@ -10,6 +10,7 @@ export const ackbarSnackbarStyles = css`
     position: fixed;
     bottom: var(--ackbar-margins);
     left: var(--ackbar-margins);
+    opacity: var(--ackbar-opacity);
   }
 
   :host([position="top left"]) {

@@ -63,7 +63,8 @@ export class AckbarBar extends LitElement {
     super.connectedCallback();
 
     // Start the timer
-    if (this.type === 'auto') {
+    if (this.type === 'auto' || !this._buttonText) {
+      console.log('starting timer');
       this._timer();
     }
   }

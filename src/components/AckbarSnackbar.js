@@ -4,6 +4,7 @@ import { ackbarSnackbarStyles } from '../styles/ackbar-snackbar.styles.js';
 import './ackbar-bar.js';
 
 import { defaultOptions } from '../js/defaultOptions.js';
+import { validateSnackbarOptions } from '../js/validateSnackbarOptions.js';
 
 export class AckbarSnackbar extends LitElement {
   render() {
@@ -34,14 +35,23 @@ export class AckbarSnackbar extends LitElement {
    * @private
    */
   _handleSnackbarAdd(event) {
-    const snackbarOptions = {
-      id: Date.now(),
-      ...defaultOptions,
-      ...event.detail,
-    }
+    const validationErrors = validateSnackbarOptions(event.detail);
 
-    const newSnackbar = this._createNewSnackbar(snackbarOptions);
-    this.shadowRoot.prepend(newSnackbar);
+    if (validationErrors.length > 0) {
+      console.log('ERRORS', validationErrors);
+      for (const { message } of validationErrors) {
+        console.error('ACKBAR-SNACKBAR:', '\n', 'There was a problem creating your snackbar. Please check your custom event options.', '\n', 'ERROR:', message);
+      }
+    } else {
+      const snackbarOptions = {
+        id: Date.now(),
+        ...defaultOptions,
+        ...event.detail,
+      }
+
+      const newSnackbar = this._createNewSnackbar(snackbarOptions);
+      this.shadowRoot.prepend(newSnackbar);
+    }
   }
 
   /**

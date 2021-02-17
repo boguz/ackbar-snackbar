@@ -23,5 +23,6 @@ export const variables = css`
 
     /* Other */
     --ackbar-radius-normal: .25rem;
+    --ackbar-opacity: 1;
   }
 `;

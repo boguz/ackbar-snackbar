@@ -53,8 +53,8 @@
         variant: snackbarVariant,
         duration: 4000,
         type: typeAuto ? 'auto' : 'dismiss',
-        buttonText: showButton ? buttonText : null,
-        buttonCallback() {console.log('SUPER CALLBACK!!!!')}
+        buttonText: showButton ? buttonText : null  ,
+        buttonCallback() {console.log('SUPER CALLBACK!!!!')},
       };
 
       window.dispatchEvent(new CustomEvent('ackbar-snackbar-add', {
