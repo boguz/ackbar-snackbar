@@ -35,6 +35,24 @@ export const ackbarBarStyles = css`
     background-color: var(--ackbar-color-custom);
   }
 
+  :host([size="small"]) {
+    padding: calc(var(--ackbar-padding-fourth) / 2) calc(var(--ackbar-padding-normal) / 2);
+    font-size: 87.5%;
+  }
+
+  :host([size="small"]) .ackbar-bar__button {
+    font-size: 87.5%;
+  }
+
+  :host([size="large"]) {
+    padding: calc(var(--ackbar-padding-fourth) * 1.75) calc(var(--ackbar-padding-normal) * 1.75);
+    font-size: 125%;
+  }
+
+  :host([size="large"]) .ackbar-bar__button {
+    font-size: 125%;
+  }
+
   :host([hasButton]) {
     display: grid;
     grid-template-columns: 1fr auto;

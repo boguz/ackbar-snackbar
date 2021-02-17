@@ -1,6 +1,7 @@
 // accepted values
+const acceptedSizes = ['small', 'normal', 'large'];
 const acceptedTypes = ['auto', 'dismiss'];
-const acceptedVariants = ['default', 'success', 'error', 'warning', 'info']
+const acceptedVariants = ['default', 'success', 'error', 'warning', 'info'];
 
 /**
  * Validation schema for the snackbar custom options
@@ -18,6 +19,7 @@ export const optionsSchema = {
   buttonText: (value) => !value || typeof value === 'string',
   duration: (value) => typeof value === 'number' && !Number.isNaN(value),
   message: (value) => typeof value === 'string' && value.length > 0,
+  size: (value) => typeof value === 'string' && acceptedSizes.includes(value),
   type: (value) => typeof value === 'string' && acceptedTypes.includes(value),
   variant: (value) => typeof value === 'string' && acceptedVariants.includes(value)
 }

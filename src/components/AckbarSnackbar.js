@@ -38,7 +38,6 @@ export class AckbarSnackbar extends LitElement {
     const validationErrors = validateSnackbarOptions(event.detail);
 
     if (validationErrors.length > 0) {
-      console.log('ERRORS', validationErrors);
       for (const { message } of validationErrors) {
         console.error('ACKBAR-SNACKBAR:', '\n', 'There was a problem creating your snackbar. Please check your custom event options.', '\n', 'ERROR:', message);
       }
@@ -74,14 +73,18 @@ export class AckbarSnackbar extends LitElement {
   _createNewSnackbar(snackbarOptions) {
     const newSnackbar = document.createElement('ackbar-bar');
     newSnackbar.id = snackbarOptions.id;
-    newSnackbar.type = snackbarOptions.type;
-    newSnackbar.message = snackbarOptions.message;
-    newSnackbar.hasFadedIn = snackbarOptions.hasFadedIn;
-    newSnackbar.duration = snackbarOptions.duration;
-    newSnackbar.buttonText = snackbarOptions.buttonText;
+
     newSnackbar.buttonCallback = snackbarOptions.buttonCallback;
-    newSnackbar.setAttribute('variant', snackbarOptions.variant);
+    newSnackbar.buttonText = snackbarOptions.buttonText;
+    newSnackbar.duration = snackbarOptions.duration;
+    newSnackbar.message = snackbarOptions.message;
+    newSnackbar.type = snackbarOptions.type;
+
+    newSnackbar.hasFadedIn = snackbarOptions.hasFadedIn;
+
     newSnackbar.setAttribute('id', snackbarOptions.id);
+    newSnackbar.setAttribute('size', snackbarOptions.size);
+    newSnackbar.setAttribute('variant', snackbarOptions.variant);
     return newSnackbar;
   }
 }

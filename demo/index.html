@@ -18,7 +18,9 @@
     <button class="demo__button" snackbarVariant="error">error</button>
     <button class="demo__button" snackbarVariant="info">info</button>
   </section>
+
   <br>
+
   <section>
     <label for="buttonyes">
       <input type="radio" name="button" value="yes" id="buttonyes"> Show button
@@ -28,13 +30,30 @@
     </label>
     <input type="text" id="buttonText" placeholder="Button Text">
   </section>
+
   <br>
-  <label for="autoyes">
-    <input type="radio" name="auto" value="yes" id="autoyes"> Auto
-  </label>
-  <label for="autono">
-    <input type="radio" name="auto" value="no" id="autono" checked> Dismiss
-  </label>
+
+  <section>
+    <label for="autoyes">
+      <input type="radio" name="auto" value="yes" id="autoyes"> Auto
+    </label>
+    <label for="autono">
+      <input type="radio" name="auto" value="no" id="autono" checked> Dismiss
+    </label>
+  </section>
+
+  <br>
+
+  <section>
+    <label for="sizesmall">
+      <input type="radio" name="size" value="small" id="sizesmall"> Small
+    </label>
+    <label for="sizenormal">
+      <input type="radio" name="size" value="normal" id="sizenormal" checked> Normal
+    </label>
+    <label for="sizelarge">
+      <input type="radio" name="size" value="large" id="sizelarge"> Large
+    </label>
   </section>
 
   <ackbar-snackbar></ackbar-snackbar>
@@ -47,14 +66,16 @@
       const showButton = document.querySelector('input[name="button"]:checked').value === 'yes';
       const buttonText = document.querySelector('#buttonText').value;
       const typeAuto = document.querySelector('input[name="auto"]:checked').value === 'yes';
-      console.log('typeAuto', typeAuto);
+      const snackbarSize = document.querySelector('input[name="size"]:checked').value;
+
       const snackbar = {
-        message: `this is a ${snackbarVariant} message`,
-        variant: snackbarVariant,
-        duration: 4000,
-        type: typeAuto ? 'auto' : 'dismiss',
-        buttonText: showButton ? buttonText : null  ,
         buttonCallback() {console.log('SUPER CALLBACK!!!!')},
+        buttonText: showButton ? buttonText : null  ,
+        duration: 4000,
+        message: `this is a ${snackbarVariant} message`,
+        size: snackbarSize,
+        type: typeAuto ? 'auto' : 'dismiss',
+        variant: snackbarVariant,
       };
 
       window.dispatchEvent(new CustomEvent('ackbar-snackbar-add', {
