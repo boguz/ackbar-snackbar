@@ -5,8 +5,12 @@
     - [x] dismiss
     - [x] button
     - [x] variants add 'warning'
-
+    - [x] Different animations (slide in, opacity, no animation,...)
+    - [ ] Add animation Speed
+    
 - [ ] Add Documentation
+    - [ ] Animation Name
+    - [ ] Animatio Speed
     - [ ] type
     - [ ] message
     - [ ] duration

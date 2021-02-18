@@ -69,8 +69,9 @@
       const snackbarSize = document.querySelector('input[name="size"]:checked').value;
 
       const snackbar = {
+        animationName: 'zoom',
         buttonCallback() {console.log('SUPER CALLBACK!!!!')},
-        buttonText: showButton ? buttonText : null  ,
+        buttonText: showButton ? buttonText : null,
         duration: 4000,
         message: `this is a ${snackbarVariant} message`,
         size: snackbarSize,

@@ -1,4 +1,5 @@
 // accepted values
+const acceptedAnimationNames = ['default', 'slide-in', 'zoom'];
 const acceptedSizes = ['small', 'normal', 'large'];
 const acceptedTypes = ['auto', 'dismiss'];
 const acceptedVariants = ['default', 'success', 'error', 'warning', 'info'];
@@ -6,6 +7,7 @@ const acceptedVariants = ['default', 'success', 'error', 'warning', 'info'];
 /**
  * Validation schema for the snackbar custom options
  * @type {{
+ *  animation: (function(*=): boolean|boolean)
  *  duration: (function(*=): boolean|boolean),
  *  buttonText: (function(*=): boolean),
  *  buttonCallback: (function(*=): boolean),
@@ -15,6 +17,7 @@ const acceptedVariants = ['default', 'success', 'error', 'warning', 'info'];
  * }}
  */
 export const optionsSchema = {
+  animationName: (value) => typeof value === 'string' && acceptedAnimationNames.includes(value),
   buttonCallback: (value) => typeof value === 'function',
   buttonText: (value) => !value || typeof value === 'string',
   duration: (value) => typeof value === 'number' && !Number.isNaN(value),

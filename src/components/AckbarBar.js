@@ -1,6 +1,8 @@
 import { html, css, LitElement } from 'lit-element';
 import { ackbarBarStyles } from '../styles/ackbar-bar.styles.js';
 
+import { animations } from '../js/animations.js';
+
 export class AckbarBar extends LitElement {
   render() {
     return html`
@@ -20,13 +22,14 @@ export class AckbarBar extends LitElement {
 
   static get properties() {
     return {
-      message: { type: String },
+      animationName: { type: String },
+      buttonCallback: { type: Function },
+      buttonText: { type: String },
+      duration: { type: Number },
       hasFadedIn: { type: Boolean },
       id: { type: String },
+      message: { type: String },
       type: { type: String },
-      duration: { type: Number },
-      buttonText: { type: String },
-      buttonCallback: { type: Function }
     };
   }
 
@@ -97,7 +100,7 @@ export class AckbarBar extends LitElement {
    * @private
    */
   _fadeIn() {
-    const animationKeyframes = [{ opacity: '0' }, { opacity: '1' }];
+    const animationKeyframes = animations[this.animationName].showAnimation;
     const animationOptions = { duration: this._fadeInDuration, iterations: 1 };
     this.animate(animationKeyframes, animationOptions);
 
@@ -116,7 +119,7 @@ export class AckbarBar extends LitElement {
    * @private
    */
   _fadeOut() {
-    const fadeOutKeyframes = [{ opacity: '1' }, { opacity: '0' }];
+    const fadeOutKeyframes =  animations[this.animationName].hideAnimation;
     const fadeOutOptions = { duration: this._fadeOutDuration, iterations: 1 };
     const fadeOutAnimation = this.animate(fadeOutKeyframes, fadeOutOptions);
 

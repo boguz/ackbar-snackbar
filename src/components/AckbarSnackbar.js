@@ -17,8 +17,16 @@ export class AckbarSnackbar extends LitElement {
     `;
   }
 
+  static get properties() {
+    return {
+      animation: { type: String }
+    }
+  }
+
   constructor() {
     super();
+
+    this.animation = 'default';
 
     // Add event listeners
     window.addEventListener('ackbar-snackbar-add', this._handleSnackbarAdd.bind(this));
@@ -71,9 +79,11 @@ export class AckbarSnackbar extends LitElement {
    * @private
    */
   _createNewSnackbar(snackbarOptions) {
+    console.log('eeeee', this.animation);
     const newSnackbar = document.createElement('ackbar-bar');
     newSnackbar.id = snackbarOptions.id;
 
+    newSnackbar.animationName = snackbarOptions.animationName;
     newSnackbar.buttonCallback = snackbarOptions.buttonCallback;
     newSnackbar.buttonText = snackbarOptions.buttonText;
     newSnackbar.duration = snackbarOptions.duration;
