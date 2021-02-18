@@ -1,7 +1,7 @@
 import { optionsSchema } from './optionsSchema.js';
 
 /**
- * Validate the snackbar options agains the options validation schema.
+ * Validate the snackbar options against the options validation schema.
  * Return an array with an error for each invalid option
  * @param options
  * @returns {Error[]}

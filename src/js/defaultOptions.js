@@ -1,4 +1,5 @@
 export const defaultOptions = {
+  animationDuration: 500,
   animationName: 'default',
   buttonCallback: null,
   buttonText: null,

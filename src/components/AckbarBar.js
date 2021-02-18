@@ -22,6 +22,7 @@ export class AckbarBar extends LitElement {
 
   static get properties() {
     return {
+      animationDuration: { type: Number },
       animationName: { type: String },
       buttonCallback: { type: Function },
       buttonText: { type: String },
@@ -101,7 +102,7 @@ export class AckbarBar extends LitElement {
    */
   _fadeIn() {
     const animationKeyframes = animations[this.animationName].showAnimation;
-    const animationOptions = { duration: this._fadeInDuration, iterations: 1 };
+    const animationOptions = { duration: this.animationDuration, iterations: 1 };
     this.animate(animationKeyframes, animationOptions);
 
     this.dispatchEvent(new CustomEvent('ackbar-bar-has-faded-in', {
@@ -120,7 +121,7 @@ export class AckbarBar extends LitElement {
    */
   _fadeOut() {
     const fadeOutKeyframes =  animations[this.animationName].hideAnimation;
-    const fadeOutOptions = { duration: this._fadeOutDuration, iterations: 1 };
+    const fadeOutOptions = { duration: this.animationDuration, iterations: 1 };
     const fadeOutAnimation = this.animate(fadeOutKeyframes, fadeOutOptions);
 
     // after fadeout animation finishes, remove snackbar

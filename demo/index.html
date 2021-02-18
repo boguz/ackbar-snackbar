@@ -69,7 +69,8 @@
       const snackbarSize = document.querySelector('input[name="size"]:checked').value;
 
       const snackbar = {
-        animationName: 'zoom',
+        animationDuration: 250,
+        animationName: 'slide-in',
         buttonCallback() {console.log('SUPER CALLBACK!!!!')},
         buttonText: showButton ? buttonText : null,
         duration: 4000,

@@ -83,6 +83,7 @@ export class AckbarSnackbar extends LitElement {
     const newSnackbar = document.createElement('ackbar-bar');
     newSnackbar.id = snackbarOptions.id;
 
+    newSnackbar.animationDuration = snackbarOptions.animationDuration;
     newSnackbar.animationName = snackbarOptions.animationName;
     newSnackbar.buttonCallback = snackbarOptions.buttonCallback;
     newSnackbar.buttonText = snackbarOptions.buttonText;

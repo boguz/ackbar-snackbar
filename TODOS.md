@@ -6,7 +6,7 @@
     - [x] button
     - [x] variants add 'warning'
     - [x] Different animations (slide in, opacity, no animation,...)
-    - [ ] Add animation Speed
+    - [x] Add animation Speed
     
 - [ ] Add Documentation
     - [ ] Animation Name
