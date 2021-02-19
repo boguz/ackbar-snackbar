@@ -14,8 +14,6 @@ export const variables = css`
 
     /* Distances / Position / Spacing*/
     --ackbar-padding-normal: 1rem;
-    --ackbar-padding-half: calc(var(--ackbar-padding-normal) / 2);
-    --ackbar-padding-fourth: calc(var(--ackbar-padding-normal) / 4);
     --ackbar-spacing-normal: .25rem;
     --ackbar-margins: 1rem;
     --ackbar-max-width: 100%;

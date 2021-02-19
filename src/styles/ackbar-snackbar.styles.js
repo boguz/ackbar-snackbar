@@ -66,4 +66,18 @@ export const ackbarSnackbarStyles = css`
     right: var(--ackbar-margins);
     transform: translateY(-50%);
   }
+
+  :host([position="top right"]) ackbar-bar,
+  :host([position="middle right"]) ackbar-bar,
+  :host([position="bottom right"]) ackbar-bar {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  :host([position="top center"]) ackbar-bar,
+  :host([position="middle center"]) ackbar-bar,
+  :host([position="bottom center"]) ackbar-bar {
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
