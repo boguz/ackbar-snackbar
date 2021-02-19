@@ -1,10 +1,11 @@
-![ackbar-bar logo](./src/images/ackbar-snackbar_logo-03.png)
+![ackbar-bar logo](./src/images/ackbar-snackbar_logo.png)
+<img src="https://github.com/boguz/ackbar-snackbar/src/images/ackbar-snackbar_logo.png" height="200">
 # \<ackbar-snackbar>
 
 A small, very easy to use and highly customisable snackbar component to use on any project.
 
 
-![ackbar-bar it's a trap](./src/images/ackbar-snackbar_It's%20_a_trap.png)
+![ackbar-snackbar It's a trap](./src/images/ackbar-snackbar_trap.png)
 
 ## Table of Contents  
 - [Installation](#installation)  
