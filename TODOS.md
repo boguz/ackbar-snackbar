@@ -9,21 +9,23 @@
     - [x] Add animation Speed
     
 - [ ] Add Documentation
-    - [ ] Animation Name
-    - [ ] Animatio Speed
-    - [ ] type
-    - [ ] message
-    - [ ] duration
-    - [ ] buttonText
-    - [ ] buttonCallback
-    - [ ] variant
-    - [ ] position
+    - [x] How to use
+        - [ ] Add CDN
+    - [x] Animation Name
+    - [x] Animation Speed
+    - [x] buttonCallback
+    - [x] buttonText
+    - [x] duration
+    - [x] message
+    - [x] position
+    - [x] type
+    - [x] variant
+    - [x] sizes
     - [ ] css variables
-    - [ ] How to use
-    - [ ] Use examples
     
 - [ ] Events
-    - [ ] Dispatch custom events?
+    - [x] Dispatch custom events?
+    - [x] Remove event listeners when disconnected
     
 - [ ] Publish
     - [ ] Add info to package json

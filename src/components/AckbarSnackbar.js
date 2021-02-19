@@ -34,6 +34,28 @@ export class AckbarSnackbar extends LitElement {
   }
 
   /**
+   * Dispatch a ready event once the snackbar is added to the dom
+   */
+  connectedCallback() {
+    super.connectedCallback();
+
+    this.dispatchEvent(new CustomEvent('ackbar-snackbar-ready', {
+      bubbles: true,
+      composed: true,
+    }));
+  }
+
+  /**
+   * Remove event listeners once the snackbar is disconnected
+   */
+  disconnectedCallback() {
+    super.disconnectedCallback();
+
+    window.removeEventListener('ackbar-snackbar-add', this._handleSnackbarAdd.bind(this));
+    window.removeEventListener('ackbar-snackbar-remove', this._handleSnackbarRemove.bind(this));
+  }
+
+  /**
    * Handle snackbar add
    *  - create options object
    *  - create new snackbar
@@ -58,17 +80,34 @@ export class AckbarSnackbar extends LitElement {
 
       const newSnackbar = this._createNewSnackbar(snackbarOptions);
       this.shadowRoot.prepend(newSnackbar);
+
+      this.dispatchEvent(new CustomEvent('ackbar-snackbar-bar-added', {
+        bubbles: true,
+        composed: true,
+        detail: {
+          snackbarID: newSnackbar.id
+        }
+      }));
     }
   }
 
   /**
-   * Remove snackbar from DOM
+   * Remove snackbar from DOM.
+   * Dispatch event
    *
    * @param event
    * @private
    */
   _handleSnackbarRemove(event) {
     this.shadowRoot.getElementById(event.detail.snackbarID).remove();
+
+    this.dispatchEvent(new CustomEvent('ackbar-snackbar-bar-removed', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        snackbarID: event.detail.snackbarID
+      }
+    }));
   }
 
   /**
@@ -79,7 +118,6 @@ export class AckbarSnackbar extends LitElement {
    * @private
    */
   _createNewSnackbar(snackbarOptions) {
-    console.log('eeeee', this.animation);
     const newSnackbar = document.createElement('ackbar-bar');
     newSnackbar.id = snackbarOptions.id;
 

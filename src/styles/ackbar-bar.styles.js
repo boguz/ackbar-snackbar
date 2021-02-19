@@ -6,7 +6,7 @@ export const ackbarBarStyles = css`
     align-items: center;
     justify-content: flex-start;
     background-color: var(--ackbar-color-bg);
-    padding: var(--ackbar-padding-fourth) var(--ackbar-padding-normal);
+    padding: var(--ackbar-padding-half) var(--ackbar-padding-normal);
     margin-top: var(--ackbar-spacing-normal);
     color: var(--ackbar-color-text);
     border-radius: var(--ackbar-radius-normal);
@@ -15,6 +15,7 @@ export const ackbarBarStyles = css`
     width: fit-content;
   }
 
+  /* VARIANTS*/
   :host([variant="success"]) {
     background-color: var(--ackbar-color-success);
   }
@@ -31,10 +32,7 @@ export const ackbarBarStyles = css`
     background-color: var(--ackbar-color-info);
   }
 
-  :host([variant="custom"]) {
-    background-color: var(--ackbar-color-custom);
-  }
-
+  /* SIZES */
   :host([size="small"]) {
     padding: calc(var(--ackbar-padding-fourth) / 2) calc(var(--ackbar-padding-normal) / 2);
     font-size: 87.5%;
@@ -53,12 +51,14 @@ export const ackbarBarStyles = css`
     font-size: 125%;
   }
 
+  /* HAS BUTTON */
   :host([hasButton]) {
     display: grid;
     grid-template-columns: 1fr auto;
     grid-gap: 1rem;
   }
 
+  /* BUTTON */
   .ackbar-bar__button {
     border: none;
     background-color: transparent;
@@ -75,6 +75,10 @@ export const ackbarBarStyles = css`
   :host([variant="info"]) .ackbar-bar__button,
   :host([variant="warning"]) .ackbar-bar__button {
     color: var(--ackbar-color-text);
+  }
+
+  .ackbar-bar__message {
+    margin: 0;
   }
 
   @media (hover: hover) {

@@ -22,12 +22,12 @@ export class AckbarBar extends LitElement {
 
   static get properties() {
     return {
+      animationDone: { type: Boolean },
       animationDuration: { type: Number },
       animationName: { type: String },
       buttonCallback: { type: Function },
       buttonText: { type: String },
       duration: { type: Number },
-      hasFadedIn: { type: Boolean },
       id: { type: String },
       message: { type: String },
       type: { type: String },
@@ -59,8 +59,6 @@ export class AckbarBar extends LitElement {
     this._timer = this._timer.bind(this);
 
     this._showStart = Date.now();
-    this._fadeInDuration = 500;
-    this._fadeOutDuration = 500;
   }
 
   connectedCallback() {
@@ -68,7 +66,6 @@ export class AckbarBar extends LitElement {
 
     // Start the timer
     if (this.type === 'auto' || !this._buttonText) {
-      console.log('starting timer');
       this._timer();
     }
   }
@@ -92,7 +89,7 @@ export class AckbarBar extends LitElement {
     super.update(changedProperties);
 
     // start fadein on first load
-    if (!this.hasFadedIn) this._fadeIn();
+    if (!this.animationDone) this._fadeIn();
   }
 
   /**

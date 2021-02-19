@@ -4,10 +4,10 @@ export const variables = css`
   :host {
     /* Colors: */
     --ackbar-color-bg: rgb(53, 53, 53);
-    --ackbar-color-success: rgb(105, 199, 109);
-    --ackbar-color-error: rgb(234, 94, 94);
-    --ackbar-color-warning: rgb(241, 153, 78);
-    --ackbar-color-info: rgb(47, 162, 255);
+    --ackbar-color-success: rgb(105,199,109);
+    --ackbar-color-error: rgb(234,94,94);
+    --ackbar-color-warning: rgb(241,153,78);
+    --ackbar-color-info: rgb(47,162,255);
     --ackbar-color-text: rgb(255, 255, 255);
     --ackbar-color-button-default: rgb(149, 104, 228);
     --ackbar-color-button-hover-background: rgba(0, 0, 0, .1);

@@ -22,12 +22,6 @@
   <br>
 
   <section>
-    <label for="buttonyes">
-      <input type="radio" name="button" value="yes" id="buttonyes"> Show button
-    </label>
-    <label for="buttonno">
-      <input type="radio" name="button" value="no" id="buttonno" checked> Hide button
-    </label>
     <input type="text" id="buttonText" placeholder="Button Text">
   </section>
 
@@ -56,14 +50,13 @@
     </label>
   </section>
 
-  <ackbar-snackbar></ackbar-snackbar>
+  <ackbar-snackbar position="top right"></ackbar-snackbar>
 
   <script>
     const buttons = document.querySelectorAll('.demo__button');
 
     function handleButtonClick(event) {
       const snackbarVariant = event.currentTarget.getAttribute('snackbarVariant');
-      const showButton = document.querySelector('input[name="button"]:checked').value === 'yes';
       const buttonText = document.querySelector('#buttonText').value;
       const typeAuto = document.querySelector('input[name="auto"]:checked').value === 'yes';
       const snackbarSize = document.querySelector('input[name="size"]:checked').value;
@@ -72,7 +65,7 @@
         animationDuration: 250,
         animationName: 'slide-in',
         buttonCallback() {console.log('SUPER CALLBACK!!!!')},
-        buttonText: showButton ? buttonText : null,
+        buttonText: buttonText.length > 0 ? buttonText : null,
         duration: 4000,
         message: `this is a ${snackbarVariant} message`,
         size: snackbarSize,
