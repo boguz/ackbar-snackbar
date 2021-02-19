@@ -24,7 +24,6 @@ A small, very easy to use and highly customisable snackbar component to use on a
 
 
 
-
 ## Installation
 ```bash
 npm i ackbar-snackbar
@@ -242,3 +241,30 @@ Example:
 
 ## CSS Variables
 You can further customize the snackbars by adding your custom styles using the available custom CSS Variables
+
+Example:
+```css
+/* Add to your css */
+acbar-snackbar {
+    --ackbar-color-success: green;
+}
+```
+
+### Variables
+| CSS Variable Name | Description | Default  |
+|:----------------- | ----------- | --------:|
+| '--ackbar-color-bg' | Background color of the default snackbar | rgb(53, 53, 53) |
+| '--ackbar-color-success' | Background color of the success variant snackbar | rgb(105, 199, 109) |
+| '--ackbar-color-error' | Background color of the error variant snackbar | rgb(234, 94, 94) |
+| '--ackbar-color-warning' | Background color of the warning variant snackbar | rgb(241, 153, 78) |
+| '--ackbar-color-info' | Background color of the info variant snackbar | rgb(47, 162, 255) |
+| '--ackbar-color-text' | Message text color on success, error, warning and info variants | rgb(255, 255, 255) |
+| '--ackbar-color-button-default' | Button text color | rgb(149, 104, 228) |
+| '--ackbar-color-button-hover-background' | Button background color on hover | rgba(0, 0, 0, .1) |
+| '--ackbar-padding-normal' | Snackbar padding | 1rem |
+| '--ackbar-spacing-normal' | Spacing between snackbars | .25rem |
+| '--ackbar-margins' | Container's distance to page border | 1rem |
+| '--ackbar-max-width' | Max-width of a snackbar | 100% |
+| '--ackbar-min-width' | Min-width of a snackbar | 20rem |
+| '--ackbar-radius-normal' | Border-radius (on the snackbar and the button) | .25rem |
+| '--ackbar-opacity' | Opacity of the component | 1 |
