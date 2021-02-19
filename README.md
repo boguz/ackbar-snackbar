@@ -1,5 +1,5 @@
 ![ackbar-bar logo](./src/images/ackbar-snackbar_logo.png)
-<img src="https://github.com/boguz/ackbar-snackbar/src/images/ackbar-snackbar_logo.png" height="200">
+<img src="/boguz/ackbar-snackbar/raw/main/src/images/ackbar-snackbar_logo.png" height="200">
 # \<ackbar-snackbar>
 
 A small, very easy to use and highly customisable snackbar component to use on any project.
