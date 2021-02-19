@@ -17,16 +17,8 @@ export class AckbarSnackbar extends LitElement {
     `;
   }
 
-  static get properties() {
-    return {
-      animation: { type: String }
-    }
-  }
-
   constructor() {
     super();
-
-    this.animation = 'default';
 
     // Add event listeners
     window.addEventListener('ackbar-snackbar-add', this._handleSnackbarAdd.bind(this));

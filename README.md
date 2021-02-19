@@ -226,7 +226,7 @@ const snackbarOptions = {
 You can also set some attributes directly on the element.
 
 ### Position
-Set the position of the snackbars on the screen
+Set the position of the snackbars inside the browser window
 
 | Attribute Name | Possible values | Default  | Type     | Required  |
 |:-------------- | --------------- | -------- | --------- | --------:|
