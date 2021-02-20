@@ -4,12 +4,12 @@
 
 A small, very easy to use and highly customisable snackbar component to use on any project.
 
-<!--
-* You can try it on the [Ackbar Snackbar Sandbox](https://boguz.github.io/ackbar-snackbar/demo/)
-* And here you can find the [Ackbar Snackbar Documentation](https://boguz.github.io/ackbar-snackbar/)
--->
-
 ![ackbar-snackbar It's a trap](./src/images/ackbar-snackbar_trap.png)
+
+🍕 Try it out on the [Ackbar Snackbar Sandbox](https://github.com/boguz/ackbar-snackbar-sandbox)
+
+![ackbar-snackbar_demo](./src/images/ackbar-snackbar.gif)
+
 
 ## 📖 Table of Contents  
 - [Installation](#installation)  
@@ -39,7 +39,7 @@ npm i ackbar-snackbar
 ## 🚀 Getting Started
 1. Import the module into your project    
     ``` html
-    <script src="../ackbar-snackbar.js" type="module"></script>
+    <script src="node_modules/ackbar-snackbar/dist/index.js"></script>
     ```
 
 2. Add the element to your page (for instance as the last element before the `</body>`)
