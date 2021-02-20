@@ -16,38 +16,40 @@ export const ackbarBarStyles = css`
   }
 
   /* VARIANTS*/
-  :host([variant="success"]) {
+  :host([variant='success']) {
     background-color: var(--ackbar-color-success);
   }
 
-  :host([variant="error"]) {
+  :host([variant='error']) {
     background-color: var(--ackbar-color-error);
   }
 
-  :host([variant="warning"]) {
+  :host([variant='warning']) {
     background-color: var(--ackbar-color-warning);
   }
 
-  :host([variant="info"]) {
+  :host([variant='info']) {
     background-color: var(--ackbar-color-info);
   }
 
   /* SIZES */
-  :host([size="small"]) {
-    padding: calc(var(--ackbar-padding-normal) / 2) calc(var(--ackbar-padding-normal) / 2);
+  :host([size='small']) {
+    padding: calc(var(--ackbar-padding-normal) / 2)
+      calc(var(--ackbar-padding-normal) / 2);
     font-size: 87.5%;
   }
 
-  :host([size="small"]) .ackbar-bar__button {
+  :host([size='small']) .ackbar-bar__button {
     font-size: 87.5%;
   }
 
-  :host([size="large"]) {
-    padding: calc(var(--ackbar-padding-normal) * 1.25) calc(var(--ackbar-padding-normal) * 1.25);
+  :host([size='large']) {
+    padding: calc(var(--ackbar-padding-normal) * 1.25)
+      calc(var(--ackbar-padding-normal) * 1.25);
     font-size: 125%;
   }
 
-  :host([size="large"]) .ackbar-bar__button {
+  :host([size='large']) .ackbar-bar__button {
     font-size: 125%;
   }
 
@@ -65,15 +67,15 @@ export const ackbarBarStyles = css`
     font-size: 1rem;
     color: var(--ackbar-color-button-default);
     outline: none;
-    opacity: .75;
-    padding: .5rem;
-    border-radius: .25rem;
+    opacity: 0.75;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
   }
 
-  :host([variant="success"]) .ackbar-bar__button,
-  :host([variant="error"]) .ackbar-bar__button,
-  :host([variant="info"]) .ackbar-bar__button,
-  :host([variant="warning"]) .ackbar-bar__button {
+  :host([variant='success']) .ackbar-bar__button,
+  :host([variant='error']) .ackbar-bar__button,
+  :host([variant='info']) .ackbar-bar__button,
+  :host([variant='warning']) .ackbar-bar__button {
     color: var(--ackbar-color-text);
   }
 

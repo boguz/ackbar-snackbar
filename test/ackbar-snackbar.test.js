@@ -1,6 +1,6 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import '../ackbar-snackbar.js';
+import '../index.js';
 
 describe('AckbarSnackbar', () => {
   it('ackbar-snackbar has correct node name', async () => {

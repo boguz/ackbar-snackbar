@@ -10,14 +10,15 @@
     "type": "git",
     "url": "https://github.com/boguz/ackbar-snackbar"
   },
-  "keywords": ["snackbar", "notification", "alert", "toast", "webcomponent", "customizable", ],
+  "keywords": ["snackbar", "notification", "alert", "toast", "webcomponent", "customizable"],
   "scripts": {
     "start": "web-dev-server",
-    "lint": "eslint --ext .js,.html . --ignore-path .gitignore && prettier \"**/*.js\" --check --ignore-path .gitignore",
+    "lint": "npm run format && eslint --ext .js,.html . --ignore-path .gitignore && prettier \"**/*.js\" --check --ignore-path .gitignore",
     "format": "eslint --ext .js,.html . --fix --ignore-path .gitignore && prettier \"**/*.js\" --write --ignore-path .gitignore",
     "test": "web-test-runner --coverage",
     "test:watch": "web-test-runner --watch",
-    "bundle": "rollup -c"
+    "bundle": "npm run lint && npm run test && rollup -c",
+    "publish": "npm run bundle && npm publish"
   },
   "dependencies": {
     "lit-element": "^2.4.0",

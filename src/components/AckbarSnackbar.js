@@ -8,7 +8,7 @@ import { validateSnackbarOptions } from '../js/validateSnackbarOptions.js';
 
 export class AckbarSnackbar extends LitElement {
   render() {
-    return html``
+    return html``;
   }
 
   static get styles() {
@@ -21,8 +21,14 @@ export class AckbarSnackbar extends LitElement {
     super();
 
     // Add event listeners
-    window.addEventListener('ackbar-snackbar-add', this._handleSnackbarAdd.bind(this));
-    window.addEventListener('ackbar-snackbar-remove', this._handleSnackbarRemove.bind(this));
+    window.addEventListener(
+      'ackbar-snackbar-add',
+      this._handleSnackbarAdd.bind(this)
+    );
+    window.addEventListener(
+      'ackbar-snackbar-remove',
+      this._handleSnackbarRemove.bind(this)
+    );
   }
 
   /**
@@ -31,10 +37,12 @@ export class AckbarSnackbar extends LitElement {
   connectedCallback() {
     super.connectedCallback();
 
-    this.dispatchEvent(new CustomEvent('ackbar-snackbar-ready', {
-      bubbles: true,
-      composed: true,
-    }));
+    this.dispatchEvent(
+      new CustomEvent('ackbar-snackbar-ready', {
+        bubbles: true,
+        composed: true,
+      })
+    );
   }
 
   /**
@@ -43,8 +51,14 @@ export class AckbarSnackbar extends LitElement {
   disconnectedCallback() {
     super.disconnectedCallback();
 
-    window.removeEventListener('ackbar-snackbar-add', this._handleSnackbarAdd.bind(this));
-    window.removeEventListener('ackbar-snackbar-remove', this._handleSnackbarRemove.bind(this));
+    window.removeEventListener(
+      'ackbar-snackbar-add',
+      this._handleSnackbarAdd.bind(this)
+    );
+    window.removeEventListener(
+      'ackbar-snackbar-remove',
+      this._handleSnackbarRemove.bind(this)
+    );
   }
 
   /**
@@ -62,25 +76,34 @@ export class AckbarSnackbar extends LitElement {
 
     if (validationErrors.length > 0) {
       for (const { message } of validationErrors) {
-        console.error('ACKBAR-SNACKBAR:', '\n', 'There was a problem creating your snackbar. Please check your custom event options.', '\n', 'ERROR:', message);
+        console.error(
+          'ACKBAR-SNACKBAR:',
+          '\n',
+          'There was a problem creating your snackbar. Please check your custom event options.',
+          '\n',
+          'ERROR:',
+          message
+        );
       }
     } else {
       const snackbarOptions = {
         id: Date.now(),
         ...defaultOptions,
         ...eventOptions,
-      }
+      };
 
       const newSnackbar = this._createNewSnackbar(snackbarOptions);
       this.shadowRoot.prepend(newSnackbar);
 
-      this.dispatchEvent(new CustomEvent('ackbar-snackbar-bar-added', {
-        bubbles: true,
-        composed: true,
-        detail: {
-          snackbarID: newSnackbar.id
-        }
-      }));
+      this.dispatchEvent(
+        new CustomEvent('ackbar-snackbar-bar-added', {
+          bubbles: true,
+          composed: true,
+          detail: {
+            snackbarID: newSnackbar.id,
+          },
+        })
+      );
     }
   }
 
@@ -94,13 +117,15 @@ export class AckbarSnackbar extends LitElement {
   _handleSnackbarRemove(event) {
     this.shadowRoot.getElementById(event.detail.snackbarID).remove();
 
-    this.dispatchEvent(new CustomEvent('ackbar-snackbar-bar-removed', {
-      bubbles: true,
-      composed: true,
-      detail: {
-        snackbarID: event.detail.snackbarID
-      }
-    }));
+    this.dispatchEvent(
+      new CustomEvent('ackbar-snackbar-bar-removed', {
+        bubbles: true,
+        composed: true,
+        detail: {
+          snackbarID: event.detail.snackbarID,
+        },
+      })
+    );
   }
 
   /**

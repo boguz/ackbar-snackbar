@@ -8,18 +8,20 @@ export default {
   output: {
     dir: 'dist',
     format: 'es',
-    sourcemap: true
+    sourcemap: true,
   },
   plugins: [
     alias({
-      entries: [{
-        find: 'lit-html/lib/shady-render.js',
-        replacement: 'node_modules/lit-html/lit-html.js'
-      }]
+      entries: [
+        {
+          find: 'lit-html/lib/shady-render.js',
+          replacement: 'node_modules/lit-html/lit-html.js',
+        },
+      ],
     }),
     nodeResolve(),
     terser(),
-    summary()
+    summary(),
   ],
-  preserveEntrySignatures: false
-}
+  preserveEntrySignatures: false,
+};

@@ -8,9 +8,16 @@ export class AckbarBar extends LitElement {
     return html`
       <p class="ackbar-bar__message">${this.message}</p>
 
-      ${this.buttonText ? html`
-        <button class="ackbar-bar__button" @click="${this._handleButtonClick}">${this.buttonText}</button>
-      ` : ''}
+      ${this.buttonText
+        ? html`
+            <button
+              class="ackbar-bar__button"
+              @click="${this._handleButtonClick}"
+            >
+              ${this.buttonText}
+            </button>
+          `
+        : ''}
     `;
   }
 
@@ -99,16 +106,21 @@ export class AckbarBar extends LitElement {
    */
   _fadeIn() {
     const animationKeyframes = animations[this.animationName].showAnimation;
-    const animationOptions = { duration: this.animationDuration, iterations: 1 };
+    const animationOptions = {
+      duration: this.animationDuration,
+      iterations: 1,
+    };
     this.animate(animationKeyframes, animationOptions);
 
-    this.dispatchEvent(new CustomEvent('ackbar-bar-has-faded-in', {
-      bubbles: true,
-      composed: true,
-      detail: {
-        snackbarID: this.id
-      }
-    }));
+    this.dispatchEvent(
+      new CustomEvent('ackbar-bar-has-faded-in', {
+        bubbles: true,
+        composed: true,
+        detail: {
+          snackbarID: this.id,
+        },
+      })
+    );
   }
 
   /**
@@ -117,7 +129,7 @@ export class AckbarBar extends LitElement {
    * @private
    */
   _fadeOut() {
-    const fadeOutKeyframes =  animations[this.animationName].hideAnimation;
+    const fadeOutKeyframes = animations[this.animationName].hideAnimation;
     const fadeOutOptions = { duration: this.animationDuration, iterations: 1 };
     const fadeOutAnimation = this.animate(fadeOutKeyframes, fadeOutOptions);
 
@@ -133,13 +145,15 @@ export class AckbarBar extends LitElement {
    * @private
    */
   _removeSnackbar() {
-    this.dispatchEvent(new CustomEvent('ackbar-snackbar-remove', {
-      bubbles: true,
-      composed: true,
-      detail: {
-        snackbarID: this.id
-      }
-    }));
+    this.dispatchEvent(
+      new CustomEvent('ackbar-snackbar-remove', {
+        bubbles: true,
+        composed: true,
+        detail: {
+          snackbarID: this.id,
+        },
+      })
+    );
   }
 
   /**

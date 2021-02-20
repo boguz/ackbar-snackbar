@@ -18,14 +18,19 @@ const acceptedVariants = ['default', 'success', 'error', 'warning', 'info'];
  * }}
  */
 export const optionsSchema = {
-  animationDuration: (value) => !value || typeof value === 'number',
-  animationName: (value) => !value || typeof value === 'string' && acceptedAnimationNames.includes(value),
-  buttonCallback: (value) => !value || typeof value === 'function',
-  buttonText: (value) => !value || typeof value === 'string',
-  duration: (value) => !value || typeof value === 'number' && !Number.isNaN(value),
-  message: (value) => !value || typeof value === 'string' && value.length > 0,
-  size: (value) => !value || typeof value === 'string' && acceptedSizes.includes(value),
-  type: (value) => !value || typeof value === 'string' && acceptedTypes.includes(value),
-  variant: (value) => !value || typeof value === 'string' && acceptedVariants.includes(value)
-}
-
+  animationDuration: value => !value || typeof value === 'number',
+  animationName: value =>
+    !value ||
+    (typeof value === 'string' && acceptedAnimationNames.includes(value)),
+  buttonCallback: value => !value || typeof value === 'function',
+  buttonText: value => !value || typeof value === 'string',
+  duration: value =>
+    !value || (typeof value === 'number' && !Number.isNaN(value)),
+  message: value => !value || (typeof value === 'string' && value.length > 0),
+  size: value =>
+    !value || (typeof value === 'string' && acceptedSizes.includes(value)),
+  type: value =>
+    !value || (typeof value === 'string' && acceptedTypes.includes(value)),
+  variant: value =>
+    !value || (typeof value === 'string' && acceptedVariants.includes(value)),
+};
