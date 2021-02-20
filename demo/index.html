@@ -2,88 +2,163 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
-  <style>
-    body {
-      background: #fafafa;
-      font-family: sans-serif;
-    }
-  </style>
-  <script src="../ackbar-snackbar.js" type="module"></script>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+
+  <link href="./demo.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+
+  <script src="../index.js" type="module"></script>
 </head>
 <body>
-  <section class="demo__buttons">
-    <button class="demo__button" snackbarVariant="default">default</button>
-    <button class="demo__button" snackbarVariant="success">success</button>
-    <button class="demo__button" snackbarVariant="warning">warning</button>
-    <button class="demo__button" snackbarVariant="error">error</button>
-    <button class="demo__button" snackbarVariant="info">info</button>
-  </section>
 
-  <br>
+  <div class="container">
+    <div class="card">
+      <img alt="ackbar-snackbar logo" class="logo" src="../src/images/ackbar-snackbar_logo.png">
+      <h1 class="title">&lt;ackbar-snackbar&gt; sandbox</h1>
 
-  <section>
-    <input type="text" id="buttonText" placeholder="Button Text">
-  </section>
-
-  <br>
-
-  <section>
-    <label for="autoyes">
-      <input type="radio" name="auto" value="yes" id="autoyes"> Auto
-    </label>
-    <label for="autono">
-      <input type="radio" name="auto" value="no" id="autono" checked> Dismiss
-    </label>
-  </section>
-
-  <br>
-
-  <section>
-    <label for="sizesmall">
-      <input type="radio" name="size" value="small" id="sizesmall"> Small
-    </label>
-    <label for="sizenormal">
-      <input type="radio" name="size" value="normal" id="sizenormal" checked> Normal
-    </label>
-    <label for="sizelarge">
-      <input type="radio" name="size" value="large" id="sizelarge"> Large
-    </label>
-  </section>
+      <form class="form">
+        <div class="form-group form-group--100">
+          <label class="form-label label-sm" for="message"><strong>Snackbar Message</strong></label>
+          <input class="form-input input-sm" id="message" placeholder="This is a message" type="text">
+        </div>
+        <div class="form-group">
+          <label class="form-label label-sm" for="buttonText"><strong>Button Text</strong></label>
+          <input class="form-input input-sm" id="buttonText" placeholder="This is a message" type="text">
+        </div>
+        <div class="form-group">
+          <label class="form-label label-sm" for="buttonText"><strong>Duration</strong></label>
+          <input class="form-input input-sm" id="duration" value="4000" type="number">
+        </div>
+        <div class="form-group">
+          <label class="form-label label-sm"><strong>Auto / Dismiss</strong></label>
+          <label class="form-radio form-inline">
+            <input type="radio" name="auto" value="auto" checked>
+            <i class="form-icon"></i> Auto
+          </label>
+          <label class="form-radio form-inline label-sm">
+            <input type="radio" name="auto" value="dismiss">
+            <i class="form-icon"></i> Dismiss
+          </label>
+        </div>
+        <div class="form-group">
+          <label class="form-label label-sm"><strong>Snackbar Size</strong></label>
+          <label class="form-radio form-inline">
+            <input type="radio" name="size" value="small">
+            <i class="form-icon"></i> Small
+          </label>
+          <label class="form-radio form-inline">
+            <input type="radio" name="size" value="normal" class="text-sm" checked>
+            <i class="form-icon"></i> Normal
+          </label>
+          <label class="form-radio form-inline">
+            <input type="radio" name="size" value="large">
+            <i class="form-icon"></i> Large
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="position" class="form-label label-sm"><strong>Position</strong></label>
+          <select class="form-select select-sm" id="position">
+            <option value="top left">Top Left</option>
+            <option value="top center">Top Center</option>
+            <option value="top right">Top Right</option>
+            <option value="middle left">Middle Left</option>
+            <option value="middle center">Middle Center</option>
+            <option value="middle right">Middle Right</option>
+            <option value="bottom left" selected>Bottom Left</option>
+            <option value="bottom center">Bottom Center</option>
+            <option value="bottom right">Bottom Right</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label label-sm" for="variant"><strong>Variant</strong></label>
+          <select class="form-select select-sm" id="variant">
+            <option value="default" selected>Default</option>
+            <option value="success">Success</option>
+            <option value="warning">Warning</option>
+            <option value="error">Error</option>
+            <option value="info">Info</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label label-sm" for="animationName"><strong>Animation Name</strong></label>
+          <select class="form-select select-sm" id="animationName">
+            <option value="default" selected>Default</option>
+            <option value="slide-in">Slide-in</option>
+            <option value="zoom">Zoom</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label label-sm" for="animationDuration"><strong>Animation Duration</strong></label>
+          <input class="form-input input-sm" id="animationDuration" value="500" type="number">
+        </div>
+        <div class="form-group form-group--100">
+          <button id="createButton" class="button btn btn-primary">Create snackbar</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <ackbar-snackbar position="bottom left"></ackbar-snackbar>
 
-  <script>
-    const buttons = document.querySelectorAll('.demo__button');
+<script>
+  window.addEventListener('ackbar-snackbar-add', () => {
+    console.log('window got event');
+  })
+  const buttons = document.querySelectorAll('#createButton');
 
-    function handleButtonClick(event) {
-      const snackbarVariant = event.currentTarget.getAttribute('snackbarVariant');
-      const buttonText = document.querySelector('#buttonText').value;
-      const typeAuto = document.querySelector('input[name="auto"]:checked').value === 'yes';
-      const snackbarSize = document.querySelector('input[name="size"]:checked').value;
+  function handleButtonClick(event) {
+    event.preventDefault();
+    const ackbarSnackbarElement = document.querySelector('ackbar-snackbar');
+    const snackbarMessage = document.querySelector('#message').value;
+    const snackbarButtonText = document.querySelector('#buttonText').value;
+    const snackbarDuration = document.querySelector('#duration').value;
+    const snackbarType = document.querySelector('input[name="auto"]:checked').value;
+    const snackbarSize = document.querySelector('input[name="size"]:checked').value;
+    const snackbarPosition = document.querySelector('#position').value;
+    const snackbarVariant = document.querySelector('#variant').value;
+    const snackbarAnimationName = document.querySelector('#animationName').value;
+    const snackbarAnimationDuration = document.querySelector('#animationDuration').value;
 
-      const snackbar = {
-        animationDuration: 250,
-        animationName: 'slide-in',
-        buttonCallback() {console.log('SUPER CALLBACK!!!!')},
-        buttonText: buttonText.length > 0 ? buttonText : null,
-        duration: 4000,
-        message: `this is a ${snackbarVariant} message`,
-        size: snackbarSize,
-        type: typeAuto ? 'auto' : 'dismiss',
-        variant: snackbarVariant,
-      };
+    // console.log('Message:', snackbarMessage);
+    // console.log('Button Text:', snackbarButtonText);
+    // console.log('Duration:', snackbarDuration);
+    // console.log('Type:', snackbarType);
+    // console.log('Size:', snackbarSize);
+    // console.log('Position:', snackbarPosition);
+    // console.log('Variant:', snackbarVariant);
+    // console.log('Animation Name:', snackbarAnimationName);
+    // console.log('Animation Duration:', snackbarAnimationDuration);
 
-      window.dispatchEvent(new CustomEvent('ackbar-snackbar-add', {
-        bubbles: true,
-        composed: true,
-        detail: snackbar
-      }));
-    }
+    ackbarSnackbarElement.setAttribute('position', snackbarPosition)
 
-    buttons.forEach((button) => {
-      button.addEventListener('click', handleButtonClick);
-    })
+    const snackbarOptions = {}
 
-  </script>
+    if (snackbarMessage) snackbarOptions.message = snackbarMessage;
+    if (snackbarAnimationDuration) snackbarOptions.animationDuration = +snackbarAnimationDuration;
+    if (snackbarAnimationName) snackbarOptions.animationName = snackbarAnimationName;
+    if (snackbarDuration) snackbarOptions.duration = +snackbarDuration;
+    if (snackbarButtonText) snackbarOptions.buttonText = snackbarButtonText;
+    if (snackbarSize) snackbarOptions.size = snackbarSize;
+    if (snackbarType) snackbarOptions.type = snackbarType;
+    if (snackbarVariant) snackbarOptions.variant = snackbarVariant;
+
+    console.log('sn', snackbarDuration);
+
+    window.dispatchEvent(new CustomEvent('ackbar-snackbar-add', {
+      bubbles: true,
+      composed: true,
+      detail: snackbarOptions
+    }));
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', handleButtonClick);
+  });
+
+</script>
+
 </body>
 </html>

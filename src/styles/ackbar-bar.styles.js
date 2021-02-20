@@ -6,7 +6,7 @@ export const ackbarBarStyles = css`
     align-items: center;
     justify-content: flex-start;
     background-color: var(--ackbar-color-bg);
-    padding: var(--ackbar-padding-normal);
+    padding: calc(var(--ackbar-padding-normal) / 2) var(--ackbar-padding-normal);
     margin-top: var(--ackbar-spacing-normal);
     color: var(--ackbar-color-text);
     border-radius: var(--ackbar-radius-normal);
@@ -34,7 +34,7 @@ export const ackbarBarStyles = css`
 
   /* SIZES */
   :host([size='small']) {
-    padding: calc(var(--ackbar-padding-normal) / 2)
+    padding: calc(var(--ackbar-padding-normal) / 3)
       calc(var(--ackbar-padding-normal) / 2);
     font-size: 87.5%;
   }
@@ -44,7 +44,7 @@ export const ackbarBarStyles = css`
   }
 
   :host([size='large']) {
-    padding: calc(var(--ackbar-padding-normal) * 1.25)
+    padding: calc(var(--ackbar-padding-normal) * .5)
       calc(var(--ackbar-padding-normal) * 1.25);
     font-size: 125%;
   }
