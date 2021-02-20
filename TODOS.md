@@ -10,7 +10,6 @@
     
 - [ ] Add Documentation
     - [x] How to use
-        - [ ] Add CDN
     - [x] Animation Name
     - [x] Animation Speed
     - [x] buttonCallback
@@ -21,13 +20,15 @@
     - [x] type
     - [x] variant
     - [x] sizes
-    - [ ] css variables
+    - [x] css variables
     
 - [ ] Events
     - [x] Dispatch custom events?
     - [x] Remove event listeners when disconnected
     
 - [ ] Publish
+    - [ ] BUILD
+    - [ ] Test with `npm link` https://medium.com/@vmarchesin/how-to-publish-a-npm-package-in-four-steps-4344ab88e852
     - [ ] Add info to package json
     - [ ] Check code comments
     - [ ] Publish

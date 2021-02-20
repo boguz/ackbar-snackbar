@@ -57,7 +57,8 @@ export class AckbarSnackbar extends LitElement {
    * @private
    */
   _handleSnackbarAdd(event) {
-    const validationErrors = validateSnackbarOptions(event.detail);
+    const eventOptions = event.detail || {};
+    const validationErrors = validateSnackbarOptions(eventOptions);
 
     if (validationErrors.length > 0) {
       for (const { message } of validationErrors) {
@@ -67,7 +68,7 @@ export class AckbarSnackbar extends LitElement {
       const snackbarOptions = {
         id: Date.now(),
         ...defaultOptions,
-        ...event.detail,
+        ...eventOptions,
       }
 
       const newSnackbar = this._createNewSnackbar(snackbarOptions);

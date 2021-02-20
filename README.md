@@ -1,13 +1,12 @@
 <img src="./src/images/ackbar-snackbar_logo.png" height="120" alt="ackbar-snackbar logo">
 
-# \<ackbar-snackbar>
+# 📦 \<ackbar-snackbar>
 
 A small, very easy to use and highly customisable snackbar component to use on any project.
 
-
 ![ackbar-snackbar It's a trap](./src/images/ackbar-snackbar_trap.png)
 
-## Table of Contents  
+## 📖 Table of Contents  
 - [Installation](#installation)  
 - [Getting Started](#getting-started)  
 - [Options](#options)
@@ -25,14 +24,14 @@ A small, very easy to use and highly customisable snackbar component to use on a
 
 
 
-## Installation
+## 🌈 Installation
 ```bash
 npm i ackbar-snackbar
 ```
 
 
 
-## Getting Started
+## 🚀 Getting Started
 1. Import the module into your project    
     ``` html
     <script src="../ackbar-snackbar.js" type="module"></script>
@@ -60,7 +59,7 @@ npm i ackbar-snackbar
 
 
 
-## Options
+## 👷‍♂️ Options
 There are several options that you can customize when you create a snackbar.
 
 To set any option, just pass it into the snackbar options object in the `ackbar-snackbar-add` event. For instance to set a custom animation name
@@ -189,7 +188,7 @@ const snackbarOptions = {
 ```
 
 ### Variant
-Choose one of the different snackbar variants
+Choose one of the different snackbar variants to set the snackbar "style" (background-color, ...).
 
 | Option Name | Possible values | Default  | Type     | Required  |
 |:----------- | --------------- | -------- | -------- | ---------:|
@@ -222,7 +221,7 @@ const snackbarOptions = {
 
 
 
-## Attributes
+## ✏️ Attributes
 You can also set some attributes directly on the element.
 
 ### Position
@@ -240,7 +239,7 @@ Example:
 
 
 
-## CSS Variables
+## ✨ CSS Variables
 You can further customize the snackbars by adding your custom styles using the available custom CSS Variables
 
 Example:

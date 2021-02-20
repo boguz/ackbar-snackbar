@@ -1,0 +1,29 @@
+## editors
+/.idea
+.editorconfig
+/.vscode
+
+## system files
+.DS_Store
+
+## npm
+/node_modules/
+/npm-debug.log
+
+## testing
+/coverage/
+
+## temp folders
+/.tmp/
+
+## dev files
+/demo/
+/src/
+/test/
+TODOS.md
+web-test-runner.config.mjs
+web-dev-server.config.mjs
+rollup.config.js
+
+## design files
+/design/
