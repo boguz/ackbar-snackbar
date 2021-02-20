@@ -4,6 +4,9 @@
 
 A small, very easy to use and highly customisable snackbar component to use on any project.
 
+* You can try it on the [Ackbar Snackbar Sandbox](https://boguz.github.io/ackbar-snackbar/demo/)
+* And here you can find the [Ackbar Snackbar Documentation](https://boguz.github.io/ackbar-snackbar/)
+
 ![ackbar-snackbar It's a trap](./src/images/ackbar-snackbar_trap.png)
 
 ## 📖 Table of Contents  
