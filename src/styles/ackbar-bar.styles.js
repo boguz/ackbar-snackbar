@@ -43,8 +43,13 @@ export const ackbarBarStyles = css`
     font-size: 87.5%;
   }
 
+  :host([size='small']) .ackbar-bar__message,
+  :host([size='small']) .ackbar-bar__button {
+    font-size: .75rem;
+  }
+
   :host([size='large']) {
-    padding: calc(var(--ackbar-padding-normal) * .5)
+    padding: calc(var(--ackbar-padding-normal) * 0.5)
       calc(var(--ackbar-padding-normal) * 1.25);
     font-size: 125%;
   }
@@ -68,7 +73,7 @@ export const ackbarBarStyles = css`
     color: var(--ackbar-color-button-default);
     outline: none;
     opacity: 0.75;
-    padding: 0.5rem;
+    padding: .125rem 0.5rem;
     border-radius: 0.25rem;
   }
 
@@ -81,6 +86,7 @@ export const ackbarBarStyles = css`
 
   .ackbar-bar__message {
     margin: 0;
+    font-size: 1rem;
   }
 
   @media (hover: hover) {

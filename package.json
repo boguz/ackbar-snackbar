@@ -1,6 +1,6 @@
 {
   "name": "ackbar-snackbar",
-  "version": "1.0.0",
+  "version": "0.0.4",
   "description": "An easy to use and customisable snackbar component to use on any project",
   "author": "LuisPato",
   "license": "MIT",
@@ -10,15 +10,30 @@
     "type": "git",
     "url": "https://github.com/boguz/ackbar-snackbar"
   },
-  "keywords": ["snackbar", "notification", "alert", "toast", "webcomponent", "customizable"],
+  "bugs": {
+    "url": "https://github.com/boguz/ackbar-snackbar/issues"
+  },
+  "keywords": [
+    "snackbar",
+    "notification",
+    "alert",
+    "toast",
+    "webcomponent",
+    "customizable",
+    "ackbar",
+    "ui",
+    "interaction",
+    "minimal",
+    "customizable",
+    "awesome"
+  ],
   "scripts": {
     "start": "web-dev-server",
     "lint": "npm run format && eslint --ext .js,.html . --ignore-path .gitignore && prettier \"**/*.js\" --check --ignore-path .gitignore",
     "format": "eslint --ext .js,.html . --fix --ignore-path .gitignore && prettier \"**/*.js\" --write --ignore-path .gitignore",
     "test": "web-test-runner --coverage",
     "test:watch": "web-test-runner --watch",
-    "bundle": "npm run lint && npm run test && rollup -c",
-    "publish": "npm run bundle && npm publish"
+    "bundle": "npm run lint && npm run test && rollup -c"
   },
   "dependencies": {
     "lit-element": "^2.4.0",
