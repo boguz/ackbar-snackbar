@@ -45,7 +45,7 @@ export const ackbarBarStyles = css`
 
   :host([size='small']) .ackbar-bar__message,
   :host([size='small']) .ackbar-bar__button {
-    font-size: .75rem;
+    font-size: 0.75rem;
   }
 
   :host([size='large']) {
@@ -73,7 +73,7 @@ export const ackbarBarStyles = css`
     color: var(--ackbar-color-button-default);
     outline: none;
     opacity: 0.75;
-    padding: .125rem 0.5rem;
+    padding: 0.125rem 0.5rem;
     border-radius: 0.25rem;
   }
 

@@ -6,7 +6,7 @@ A small, very easy to use and highly customisable snackbar component to use on a
 
 ![ackbar-snackbar It's a trap](./src/images/ackbar-snackbar_trap.png)
 
-🍕 Try it out on the [Ackbar Snackbar Sandbox](https://github.com/boguz/ackbar-snackbar-sandbox)
+🍕 Try it out on the [Ackbar Snackbar Sandbox](https://boguz.github.io/ackbar-snackbar-sandbox/)
 
 ![ackbar-snackbar_demo](./src/images/ackbar-snackbar.gif)
 
