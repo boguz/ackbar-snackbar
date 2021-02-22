@@ -62,7 +62,7 @@ describe('AckbarSnackbar default CSS variables', () => {
   it('has correct button hover background color variable', async () => {
     const element = await fixture(html`<ackbar-snackbar></ackbar-snackbar>`);
     const successColor = getComputedStyle(element).getPropertyValue(
-      '--ackbar-color-button-hover-background'
+      '--ackbar-color-button-background-hover'
     );
     expect(successColor.trim()).to.equal('rgba(0, 0, 0, 0.1)');
   });
@@ -96,15 +96,7 @@ describe('AckbarSnackbar default CSS variables', () => {
     const successColor = getComputedStyle(element).getPropertyValue(
       '--ackbar-max-width'
     );
-    expect(successColor.trim()).to.equal('100%');
-  });
-
-  it('has correct min-width variable', async () => {
-    const element = await fixture(html`<ackbar-snackbar></ackbar-snackbar>`);
-    const successColor = getComputedStyle(element).getPropertyValue(
-      '--ackbar-min-width'
-    );
-    expect(successColor.trim()).to.equal('20rem');
+    expect(successColor.trim()).to.equal('calc(100vw - calc( 1rem * 4))');
   });
 
   it('has correct border radius variable', async () => {

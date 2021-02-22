@@ -10,10 +10,12 @@ export const variables = css`
     --ackbar-color-info: rgb(47, 162, 255);
     --ackbar-color-text: rgb(255, 255, 255);
     --ackbar-color-button-default: rgb(149, 104, 228);
-    --ackbar-color-button-hover-background: rgba(0, 0, 0, 0.1);
+    --ackbar-color-button-background: transparent;
+    --ackbar-color-button-background-hover: rgba(0, 0, 0, 0.1);
 
     /* Distances / Position / Spacing*/
     --ackbar-padding-normal: 1rem;
+    --ackbar-button-padding: 0.125rem 0.5rem;
     --ackbar-spacing-normal: 0.25rem;
     --ackbar-margins: 1rem;
     --ackbar-width: 25rem;
@@ -21,7 +23,11 @@ export const variables = css`
     --ackbar-line-height: 1.2;
 
     /* Other */
+    --ackbar-button-opacity: 0.75;
+    --ackbar-button-opacity-hover: 1;
+    --ackbar-base-font-size: 1rem;
     --ackbar-radius-normal: 0.25rem;
     --ackbar-opacity: 1;
+    --ackbar-grid-gap: 1rem;
   }
 `;

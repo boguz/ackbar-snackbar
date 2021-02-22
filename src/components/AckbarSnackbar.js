@@ -1,10 +1,9 @@
 import { html, css, LitElement } from 'lit-element';
 import { ackbarSnackbarStyles } from '../styles/ackbar-snackbar.styles.js';
-
-import './ackbar-bar.js';
-
 import { defaultOptions } from '../js/defaultOptions.js';
 import { validateSnackbarOptions } from '../js/validateSnackbarOptions.js';
+
+import './ackbar-bar.js';
 
 export class AckbarSnackbar extends LitElement {
   render() {
@@ -77,11 +76,7 @@ export class AckbarSnackbar extends LitElement {
     if (validationErrors.length > 0) {
       for (const { message } of validationErrors) {
         console.error(
-          'ACKBAR-SNACKBAR:',
-          '\n',
           'There was a problem creating your snackbar. Please check your custom event options.',
-          '\n',
-          'ERROR:',
           message
         );
       }
@@ -136,22 +131,27 @@ export class AckbarSnackbar extends LitElement {
    * @private
    */
   _createNewSnackbar(snackbarOptions) {
+    const newSnackbarProperties = [
+      'animationDuration',
+      'animationName',
+      'buttonCallback',
+      'buttonText',
+      'duration',
+      'message',
+      'type',
+      'hasFadedIn',
+    ];
+    const newSnackbarAttributes = ['id', 'size', 'variant'];
     const newSnackbar = document.createElement('ackbar-bar');
-    newSnackbar.id = snackbarOptions.id;
 
-    newSnackbar.animationDuration = snackbarOptions.animationDuration;
-    newSnackbar.animationName = snackbarOptions.animationName;
-    newSnackbar.buttonCallback = snackbarOptions.buttonCallback;
-    newSnackbar.buttonText = snackbarOptions.buttonText;
-    newSnackbar.duration = snackbarOptions.duration;
-    newSnackbar.message = snackbarOptions.message;
-    newSnackbar.type = snackbarOptions.type;
+    newSnackbarProperties.forEach(propertyName => {
+      newSnackbar[propertyName] = snackbarOptions[propertyName];
+    });
 
-    newSnackbar.hasFadedIn = snackbarOptions.hasFadedIn;
+    newSnackbarAttributes.forEach(attributeName => {
+      newSnackbar.setAttribute(attributeName, snackbarOptions[attributeName]);
+    });
 
-    newSnackbar.setAttribute('id', snackbarOptions.id);
-    newSnackbar.setAttribute('size', snackbarOptions.size);
-    newSnackbar.setAttribute('variant', snackbarOptions.variant);
     return newSnackbar;
   }
 }

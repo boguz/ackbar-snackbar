@@ -266,12 +266,18 @@ acbar-snackbar {
 | `--ackbar-color-info` | Background color of the info variant snackbar | rgb(47, 162, 255) |
 | `--ackbar-color-text` | Message text color on success, error, warning and info variants | rgb(255, 255, 255) |
 | `--ackbar-color-button-default` | Button text color | rgb(149, 104, 228) |
-| `--ackbar-color-button-hover-background` | Button background color on hover | rgba(0, 0, 0, .1) |
+| `--ackbar-color-button-background` | Button background color | transparent |
+| `--ackbar-color-button-background-hover` | Button background color on hover | rgba(0, 0, 0, .1) |
 | `--ackbar-padding-normal` | Snackbar padding | 1rem |
+| `--ackbar-button-padding` | Padding on the snackbar button | 0.125rem 0.5rem |
 | `--ackbar-spacing-normal` | Spacing between snackbars | .25rem |
 | `--ackbar-margins` | Container's distance to page border | 1rem |
 | `--ackbar-width` | Snackbar width | 25rem |
 | `--ackbar-max-width` | Snackbar maximal width | calc(100vw - calc(var(--ackbar-margins) * 4)) |
 | `--ackbar-line-height` | Line height | 1.2 |
+| `--ackbar-button-opacity` | Set the button's opacity | .75 |
+| `--ackbar-button-opacity-hover` | Set the button's opacity on hover | 1 |
+| `--ackbar-base-font-size` | Base font size for the snackbar elements | 1rem |
 | `--ackbar-radius-normal` | Border-radius (on the snackbar and the button) | .25rem |
 | `--ackbar-opacity` | Opacity of the component | 1 |
+| `--ackbar-grid-gap` | Set gap between the message and the button | 1rem |
