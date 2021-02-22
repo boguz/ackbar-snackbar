@@ -5,14 +5,20 @@ export const ackbarBarStyles = css`
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    width: calc(100vw - calc(var(--ackbar-margins) * 4));
     background-color: var(--ackbar-color-bg);
     padding: calc(var(--ackbar-padding-normal) / 2) var(--ackbar-padding-normal);
     margin-top: var(--ackbar-spacing-normal);
     color: var(--ackbar-color-text);
     border-radius: var(--ackbar-radius-normal);
-    max-width: var(--ackbar-max-width);
-    min-width: var(--ackbar-min-width);
-    width: fit-content;
+  }
+
+  @media screen and (min-width: 30rem) {
+    :host {
+      width: fit-content;
+      min-width: var(--ackbar-min-width);
+      max-width: var(--ackbar-max-width);
+    }
   }
 
   /* VARIANTS*/
