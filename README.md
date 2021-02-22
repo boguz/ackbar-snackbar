@@ -270,7 +270,8 @@ acbar-snackbar {
 | `--ackbar-padding-normal` | Snackbar padding | 1rem |
 | `--ackbar-spacing-normal` | Spacing between snackbars | .25rem |
 | `--ackbar-margins` | Container's distance to page border | 1rem |
-| `--ackbar-max-width` | Max-width of a snackbar | 100% |
-| `--ackbar-min-width` | Min-width of a snackbar | 20rem |
+| `--ackbar-width` | Snackbar width | 25rem |
+| `--ackbar-max-width` | Snackbar maximal width | calc(100vw - calc(var(--ackbar-margins) * 4)) |
+| `--ackbar-line-height` | Line height | 1.2 |
 | `--ackbar-radius-normal` | Border-radius (on the snackbar and the button) | .25rem |
 | `--ackbar-opacity` | Opacity of the component | 1 |

@@ -16,8 +16,9 @@ export const variables = css`
     --ackbar-padding-normal: 1rem;
     --ackbar-spacing-normal: 0.25rem;
     --ackbar-margins: 1rem;
-    --ackbar-max-width: 100%;
-    --ackbar-min-width: 20rem;
+    --ackbar-width: 25rem;
+    --ackbar-max-width: calc(100vw - calc(var(--ackbar-margins) * 4));
+    --ackbar-line-height: 1.2;
 
     /* Other */
     --ackbar-radius-normal: 0.25rem;
