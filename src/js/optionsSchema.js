@@ -18,6 +18,7 @@ const acceptedVariants = ['default', 'success', 'error', 'warning', 'info'];
  * }}
  */
 export const optionsSchema = {
+  accessibilityLabel: value => !value || typeof value === 'string',
   animationDuration: value => !value || typeof value === 'number',
   animationName: value =>
     !value ||

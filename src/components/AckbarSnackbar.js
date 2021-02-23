@@ -42,6 +42,9 @@ export class AckbarSnackbar extends LitElement {
         composed: true,
       })
     );
+
+    // a11y
+    this.setAttribute('aria-live', 'polite')
   }
 
   /**
@@ -132,6 +135,7 @@ export class AckbarSnackbar extends LitElement {
    */
   _createNewSnackbar(snackbarOptions) {
     const newSnackbarProperties = [
+      'accessibilityLabel',
       'animationDuration',
       'animationName',
       'buttonCallback',

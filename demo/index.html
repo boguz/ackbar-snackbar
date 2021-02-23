@@ -145,8 +145,6 @@
     if (snackbarType) snackbarOptions.type = snackbarType;
     if (snackbarVariant) snackbarOptions.variant = snackbarVariant;
 
-    console.log('sn', snackbarDuration);
-
     window.dispatchEvent(new CustomEvent('ackbar-snackbar-add', {
       bubbles: true,
       composed: true,

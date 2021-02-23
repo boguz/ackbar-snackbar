@@ -1,4 +1,5 @@
 export const defaultOptions = {
+  accessibilityLabel: null,
   animationDone: false,
   animationDuration: 500,
   animationName: 'default',

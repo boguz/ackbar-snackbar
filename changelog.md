@@ -15,3 +15,7 @@ All notable changes to this project will be documented in this file.
 - css variable for the button background color
 - css variable for button opacity (default and on hover)
 - add variable for the grid gap
+
+## [0.0.7] -2021-02-23
+### Added
+- a11y improvements

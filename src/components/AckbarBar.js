@@ -6,11 +6,12 @@ import { animations } from '../js/animations.js';
 export class AckbarBar extends LitElement {
   render() {
     return html`
-      <p class="ackbar-bar__message">${this.message}</p>
+      <p id="snackbarMessage" class="ackbar-bar__message">${this.message}</p>
 
       ${this.buttonText
         ? html`
             <button
+              id="snackbarButton"
               class="ackbar-bar__button"
               @click="${this._handleButtonClick}"
             >
@@ -75,6 +76,10 @@ export class AckbarBar extends LitElement {
     if (this.type === 'auto' || !this._buttonText) {
       this._timer();
     }
+
+    // a11y
+    this.setAttribute('aria-label', this.accessibilityLabel || `Snackbar: ${this.message}`);
+    this.setAttribute('role', 'alert');
   }
 
   /**
