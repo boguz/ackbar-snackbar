@@ -44,7 +44,7 @@ export class AckbarSnackbar extends LitElement {
     );
 
     // a11y
-    this.setAttribute('aria-live', 'polite')
+    this.setAttribute('aria-live', 'polite');
   }
 
   /**
@@ -141,7 +141,9 @@ export class AckbarSnackbar extends LitElement {
       'buttonCallback',
       'buttonText',
       'duration',
+      'hideCallback',
       'message',
+      'showCallback',
       'type',
       'hasFadedIn',
     ];
@@ -155,6 +157,8 @@ export class AckbarSnackbar extends LitElement {
     newSnackbarAttributes.forEach(attributeName => {
       newSnackbar.setAttribute(attributeName, snackbarOptions[attributeName]);
     });
+
+    if (snackbarOptions.customClasses) newSnackbar.className += snackbarOptions.customClasses;
 
     return newSnackbar;
   }

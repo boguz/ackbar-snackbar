@@ -145,6 +145,22 @@ const snackbarOptions = {
 }
 ```
 
+### Custom Classes
+Add custom classes to the snackbar element
+
+| Option Name | Default  | Type     | Required  |
+|:----------- | -------- | -------- | ---------:|
+| `customClasses` | null | String | no |
+
+Example:
+```javascript
+// Set custom classes
+const snackbarOptions = {
+  message: 'This is a super cool snackbar message',
+  customClasses: 'my-class my-other-class'
+}
+```
+
 ### Duration
 Set how long the auto snackbar (refer to [type](###type)) will be displayed (in milliseconds).
 
@@ -158,6 +174,22 @@ Example:
 const snackbarOptions = {
   message: 'This is a snackbar message',
   duration: 8000
+}
+```
+
+### Hide Callback
+You can specify a callback function that will be called when the snackbar hide animation finishes
+
+| Option Name | Default  | Type     | Required  |
+|:----------- | -------- | -------- | ---------:|
+| `hideCallback` | null | Function | no |
+
+Example:
+```javascript
+// Set a custom callback function
+const snackbarOptions = {
+  message: 'This is a snackbar message',
+  hideCallback() { console.log('Snackbar closed') }
 }
 ```
 
@@ -176,12 +208,28 @@ const snackbarOptions = {
 }
 ```
 
+### Show Callback
+You can specify a callback function that will be called when the snackbar show animation finishes
+
+| Option Name | Default  | Type     | Required  |
+|:----------- | -------- | -------- | ---------:|
+| `showCallback` | null | Function | no |
+
+Example:
+```javascript
+// Set a custom callback function
+const snackbarOptions = {
+  message: 'This is a snackbar message',
+  showCallback() { console.log('Snackbar opened') }
+}
+```
+
 ### Type
 Set the type to choose between a snackbar that is automatically dismissed or a snackbar that stays visible until the user clicks the dismiss button.
 
 | Option Name | Possible values | Default  | Type     | Required  |
 |:----------- | --------------- | -------- | -------- | ---------:|
-| `type | 'auto', 'dismiss' | 'auto' | String | no |
+| `type` | 'auto', 'dismiss' | 'auto' | String | no |
 
 Example:
 ```javascript
@@ -197,7 +245,7 @@ Choose one of the different snackbar variants to set the snackbar "style" (backg
 
 | Option Name | Possible values | Default  | Type     | Required  |
 |:----------- | --------------- | -------- | -------- | ---------:|
-| `variant | 'default', 'success', 'warning', 'error', 'info' | 'default' | String | no |
+| `variant` | 'default', 'success', 'warning', 'error', 'info' | 'default' | String | no |
 
 Example:
 ```javascript
@@ -213,7 +261,7 @@ Set the size of the snackbar
 
 | Option Name | Possible values | Default  | Type     | Required  |
 |:----------- | --------------- | -------- | -------- | ---------:|
-| size` | 'small', 'normal', 'large' | 'normal' | String | no |
+| `size` | 'small', 'normal', 'large' | 'normal' | String | no |
 
 Example:
 ```javascript
@@ -234,7 +282,7 @@ Set the position of the snackbars inside the browser window
 
 | Attribute Name | Possible values | Default  | Type     | Required  |
 |:-------------- | --------------- | -------- | --------- | --------:|
-| position` | 'top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right' | 'bottom left' | String | no |
+| `position` | 'top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right' | 'bottom left' | String | no |
 
 Example:
 ```html
@@ -281,3 +329,4 @@ acbar-snackbar {
 | `--ackbar-radius-normal` | Border-radius (on the snackbar and the button) | .25rem |
 | `--ackbar-opacity` | Opacity of the component | 1 |
 | `--ackbar-grid-gap` | Set gap between the message and the button | 1rem |
+| `--ackbar-box-shadow` | Set the box-shadow on each snackbar | none |

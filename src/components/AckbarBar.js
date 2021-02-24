@@ -115,7 +115,13 @@ export class AckbarBar extends LitElement {
       duration: this.animationDuration,
       iterations: 1,
     };
-    this.animate(animationKeyframes, animationOptions);
+    const fadeInAnimation = this.animate(animationKeyframes, animationOptions);
+
+    fadeInAnimation.onfinish = () => {
+      if (typeof this.showCallback === 'function') {
+        this.showCallback();
+      }
+    }
 
     this.dispatchEvent(
       new CustomEvent('ackbar-bar-has-faded-in', {
@@ -140,6 +146,10 @@ export class AckbarBar extends LitElement {
 
     // after fadeout animation finishes, remove snackbar
     fadeOutAnimation.onfinish = () => {
+      if (typeof this.hideCallback === 'function') {
+        this.hideCallback();
+      }
+
       this._removeSnackbar();
     };
   }

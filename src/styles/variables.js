@@ -29,5 +29,6 @@ export const variables = css`
     --ackbar-radius-normal: 0.25rem;
     --ackbar-opacity: 1;
     --ackbar-grid-gap: 1rem;
+    --ackbar-box-shadow: none;
   }
 `;

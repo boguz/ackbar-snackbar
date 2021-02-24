@@ -13,6 +13,7 @@ export const ackbarBarStyles = css`
     color: var(--ackbar-color-text);
     border-radius: var(--ackbar-radius-normal);
     line-height: var(--ackbar-line-height);
+    box-shadow: var(--ackbar-box-shadow);
   }
 
   /* VARIANTS*/

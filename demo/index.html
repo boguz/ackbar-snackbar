@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
           <label class="form-label label-sm" for="buttonText"><strong>Button Text</strong></label>
-          <input class="form-input input-sm" id="buttonText" placeholder="This is a message" type="text">
+          <input class="form-input input-sm" id="buttonText" placeholder="OK" type="text" autocomplete="off">
         </div>
         <div class="form-group">
           <label class="form-label label-sm" for="buttonText"><strong>Duration</strong></label>
@@ -112,6 +112,7 @@
   function handleButtonClick(event) {
     event.preventDefault();
     const ackbarSnackbarElement = document.querySelector('ackbar-snackbar');
+
     const snackbarMessage = document.querySelector('#message').value;
     const snackbarButtonText = document.querySelector('#buttonText').value;
     const snackbarDuration = document.querySelector('#duration').value;
@@ -121,16 +122,6 @@
     const snackbarVariant = document.querySelector('#variant').value;
     const snackbarAnimationName = document.querySelector('#animationName').value;
     const snackbarAnimationDuration = document.querySelector('#animationDuration').value;
-
-    // console.log('Message:', snackbarMessage);
-    // console.log('Button Text:', snackbarButtonText);
-    // console.log('Duration:', snackbarDuration);
-    // console.log('Type:', snackbarType);
-    // console.log('Size:', snackbarSize);
-    // console.log('Position:', snackbarPosition);
-    // console.log('Variant:', snackbarVariant);
-    // console.log('Animation Name:', snackbarAnimationName);
-    // console.log('Animation Duration:', snackbarAnimationDuration);
 
     ackbarSnackbarElement.setAttribute('position', snackbarPosition)
 
@@ -144,6 +135,11 @@
     if (snackbarSize) snackbarOptions.size = snackbarSize;
     if (snackbarType) snackbarOptions.type = snackbarType;
     if (snackbarVariant) snackbarOptions.variant = snackbarVariant;
+
+    snackbarOptions.customClasses = 'test__class';
+    snackbarOptions.buttonCallback = () => { console.log('BUTTON CALLBACK') }
+    snackbarOptions.hideCallback = () => { console.log('HIDE CALLBACK') }
+    snackbarOptions.showCallback = () => { console.log('SHOW CALLBACK') }
 
     window.dispatchEvent(new CustomEvent('ackbar-snackbar-add', {
       bubbles: true,

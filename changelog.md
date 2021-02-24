@@ -1,12 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [0.0.5] - 2021-02-22
+## [0.0.7] -2021-02-23
 ### Added
-- Line height css variable
+- a11y improvements
+- add box-shadow variable
+- add customClasses option
+- add hideCallback
+- add showCallback
 
-### Changed
-- Improve styles to make the snackbars responsive
+### Fixed
+- add missing quotes on README examples
+- correct changelog order
 
 ## [0.0.6] - 2021-02-22
 ### Added
@@ -16,6 +21,9 @@ All notable changes to this project will be documented in this file.
 - css variable for button opacity (default and on hover)
 - add variable for the grid gap
 
-## [0.0.7] -2021-02-23
+## [0.0.5] - 2021-02-22
 ### Added
-- a11y improvements
+- Line height css variable
+
+### Changed
+- Improve styles to make the snackbars responsive
