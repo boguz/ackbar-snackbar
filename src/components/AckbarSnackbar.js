@@ -19,6 +19,21 @@ export class AckbarSnackbar extends LitElement {
   constructor() {
     super();
 
+    this.newSnackbarProperties = [
+      'accessibilityLabel',
+      'animationDuration',
+      'animationName',
+      'buttonCallback',
+      'buttonText',
+      'duration',
+      'hideCallback',
+      'message',
+      'showCallback',
+      'type',
+      'hasFadedIn',
+    ];
+    this.newSnackbarAttributes = ['id', 'size', 'variant'];
+
     // Add event listeners
     window.addEventListener(
       'ackbar-snackbar-add',
@@ -134,27 +149,13 @@ export class AckbarSnackbar extends LitElement {
    * @private
    */
   _createNewSnackbar(snackbarOptions) {
-    const newSnackbarProperties = [
-      'accessibilityLabel',
-      'animationDuration',
-      'animationName',
-      'buttonCallback',
-      'buttonText',
-      'duration',
-      'hideCallback',
-      'message',
-      'showCallback',
-      'type',
-      'hasFadedIn',
-    ];
-    const newSnackbarAttributes = ['id', 'size', 'variant'];
     const newSnackbar = document.createElement('ackbar-bar');
 
-    newSnackbarProperties.forEach(propertyName => {
+    this.newSnackbarProperties.forEach(propertyName => {
       newSnackbar[propertyName] = snackbarOptions[propertyName];
     });
 
-    newSnackbarAttributes.forEach(attributeName => {
+    this.newSnackbarAttributes.forEach(attributeName => {
       newSnackbar.setAttribute(attributeName, snackbarOptions[attributeName]);
     });
 
