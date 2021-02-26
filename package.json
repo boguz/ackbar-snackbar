@@ -64,7 +64,8 @@
       "eslint-config-prettier"
     ],
     "rules": {
-      "class-methods-use-this": "off"
+      "class-methods-use-this": "off",
+      "no-plusplus": "off"
     }
   },
   "prettier": {

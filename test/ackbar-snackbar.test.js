@@ -8,64 +8,64 @@ const snackbarPositions = [
     name: 'top left',
     pos: {
       top: '16px',
-      left: '16px'
-    }
+      left: '16px',
+    },
   },
   {
     name: 'top center',
     pos: {
       top: '16px',
-      left: '50%'
-    }
+      left: '50%',
+    },
   },
   {
     name: 'top right',
     pos: {
       top: '16px',
-      right: '16px'
-    }
+      right: '16px',
+    },
   },
   {
     name: 'middle left',
     pos: {
       top: '50%',
-      left: '16px'
-    }
+      left: '16px',
+    },
   },
   {
     name: 'middle center',
     pos: {
       top: '50%',
-      left: '50%'
-    }
+      left: '50%',
+    },
   },
   {
     name: 'middle right',
     pos: {
       top: '50%',
-      right: '16px'
-    }
+      right: '16px',
+    },
   },
   {
     name: 'bottom left',
     pos: {
       bottom: '16px',
-      left: '16px'
-    }
+      left: '16px',
+    },
   },
   {
     name: 'bottom center',
     pos: {
       bottom: '16px',
-      left: '50%'
-    }
+      left: '50%',
+    },
   },
   {
     name: 'bottom right',
     pos: {
       bottom: '16px',
-      right: '16px'
-    }
+      right: '16px',
+    },
   },
 ];
 
@@ -104,18 +104,23 @@ describe('AckbarSnackbar', () => {
     expect(leftValue).to.equal('16px');
   });
 
-  snackbarPositions.forEach((position) => {
+  snackbarPositions.forEach(position => {
     it(`ackbar-snackbar has correct position ${position.name}`, async () => {
       const element = await fixture(html`<ackbar-snackbar></ackbar-snackbar>`);
-      element.setAttribute('position', position.name)
+      element.setAttribute('position', position.name);
 
       for (const [posName, posValue] of Object.entries(position.pos)) {
-        const positionValue = getComputedStyle(element).getPropertyValue(posName);
+        const positionValue = getComputedStyle(element).getPropertyValue(
+          posName
+        );
         let correctValue = posValue;
         if ((posName === 'top' || posName === 'bottom') && posValue === '50%') {
-          correctValue = `${window.innerHeight / 2}px`
-        } else if ((posName === 'left' || posName === 'right') && posValue === '50%') {
-          correctValue = `${window.innerWidth / 2}px`
+          correctValue = `${window.innerHeight / 2}px`;
+        } else if (
+          (posName === 'left' || posName === 'right') &&
+          posValue === '50%'
+        ) {
+          correctValue = `${window.innerWidth / 2}px`;
         }
         expect(positionValue).to.equal(correctValue);
       }
@@ -125,20 +130,44 @@ describe('AckbarSnackbar', () => {
   it('ackbar-snackbar adds all properties', async () => {
     const element = await fixture(html`<ackbar-snackbar></ackbar-snackbar>`);
     const snackbarNewPropertiesArray = element.newSnackbarProperties;
-    expect(arraysMatch(snackbarNewPropertiesArray, newSnackbarProperties)).to.be.true;
+    expect(arraysMatch(snackbarNewPropertiesArray, newSnackbarProperties)).to.be
+      .true;
   });
 
   it('ackbar-snackbar adds all attributes', async () => {
     const element = await fixture(html`<ackbar-snackbar></ackbar-snackbar>`);
     const snackbarNewAttributesArray = element.newSnackbarAttributes;
-    expect(arraysMatch(snackbarNewAttributesArray, newSnackbarAttributes)).to.be.true;
+    expect(arraysMatch(snackbarNewAttributesArray, newSnackbarAttributes)).to.be
+      .true;
   });
 
   it('ackbar-snackbar dispatches ready event', async () => {
     let gotReadyEvent = false;
     // eslint-disable-next-line no-return-assign
-    window.addEventListener(('ackbar-snackbar-ready'), () => gotReadyEvent = true )
+    window.addEventListener(
+      'ackbar-snackbar-ready',
+      // eslint-disable-next-line no-return-assign
+      () => (gotReadyEvent = true)
+    );
     await fixture(html`<ackbar-snackbar></ackbar-snackbar>`);
     expect(gotReadyEvent).to.be.true;
+  });
+
+  it('ackbar-snackbar dispatches bar added event', async () => {
+    let gotBarAddedEvent = false;
+    window.addEventListener(
+      'ackbar-snackbar-bar-added',
+      // eslint-disable-next-line no-return-assign
+      () => (gotBarAddedEvent = true)
+    );
+    await fixture(html`<ackbar-snackbar></ackbar-snackbar>`);
+    window.dispatchEvent(
+      new CustomEvent('ackbar-snackbar-add', {
+        bubbles: true,
+        composed: true,
+        detail: { message: 'test' },
+      })
+    );
+    expect(gotBarAddedEvent).to.be.true;
   });
 });

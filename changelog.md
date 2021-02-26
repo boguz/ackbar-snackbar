@@ -8,10 +8,15 @@ All notable changes to this project will be documented in this file.
 - add customClasses option
 - add hideCallback
 - add showCallback
+- added tests for
+    - custom css,
+    - ready event,
+    - correct properties and attributes
 
 ### Fixed
 - add missing quotes on README examples
 - correct changelog order
+- Fixed small mistakes on README
 
 ## [0.0.6] - 2021-02-22
 ### Added

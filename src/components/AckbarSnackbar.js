@@ -159,7 +159,8 @@ export class AckbarSnackbar extends LitElement {
       newSnackbar.setAttribute(attributeName, snackbarOptions[attributeName]);
     });
 
-    if (snackbarOptions.customClasses) newSnackbar.className += snackbarOptions.customClasses;
+    if (snackbarOptions.customClasses)
+      newSnackbar.className += snackbarOptions.customClasses;
 
     return newSnackbar;
   }

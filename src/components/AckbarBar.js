@@ -78,7 +78,10 @@ export class AckbarBar extends LitElement {
     }
 
     // a11y
-    this.setAttribute('aria-label', this.accessibilityLabel || `Snackbar: ${this.message}`);
+    this.setAttribute(
+      'aria-label',
+      this.accessibilityLabel || `Snackbar: ${this.message}`
+    );
     this.setAttribute('role', 'alert');
   }
 
@@ -121,7 +124,7 @@ export class AckbarBar extends LitElement {
       if (typeof this.showCallback === 'function') {
         this.showCallback();
       }
-    }
+    };
 
     this.dispatchEvent(
       new CustomEvent('ackbar-bar-has-faded-in', {

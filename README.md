@@ -37,17 +37,22 @@ npm i ackbar-snackbar
 
 
 ## 🚀 Getting Started
-1. Import the module into your project    
+1. Import the module into your project
+    - You can add it to an html file  
     ``` html
     <script src="node_modules/ackbar-snackbar/dist/index.js"></script>
     ```
+   - or import it on a JS file
+   ```js
+    import 'ackbar-bar.js';
+   ```
 
 2. Add the element to your page (for instance as the last element before the `</body>`)
     ```html
     <ackbar-snackbar></ackbar-snackbar>
     ```
 
-3. To add a snackbar, dispatch a `ackbar-snackbar-add` event from any element on your page
+3. To create a snackbar dispatch a `ackbar-snackbar-add` event from any element on your page
     ```js
     const snackbarOptions = {
         duration: 4000,
@@ -67,7 +72,7 @@ npm i ackbar-snackbar
 ## 👷‍♂️ Options
 There are several options that you can customize when you create a snackbar.
 
-To set any option, just pass it into the snackbar options object in the `ackbar-snackbar-add` event. For instance to set a custom animation name
+To set any option, just pass it into the snackbar options object in the `ackbar-snackbar-add` event. For instance to set a custom animation name:
 ```js
 window.dispatchEvent(new CustomEvent('ackbar-snackbar-add', {
   bubbles: true,
@@ -102,7 +107,7 @@ Choose which animation you want to use to show / hide the snackbar
 
 | Option Name | Possible values | Default  | Type     | Required  |
 |:----------- | --------------- | -------- | -------- | ---------:|
-| `animationName` | 'default', 'slide-in', 'zoom' | 4000 | String | no |
+| `animationName` | 'default', 'slide-in', 'zoom' | 'default' | String | no |
 
 Example: 
 ```js
